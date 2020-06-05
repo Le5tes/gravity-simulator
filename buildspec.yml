@@ -1,0 +1,35 @@
+version: 0.2
+
+phases:
+    install:
+        runtime-versions:
+            nodejs: 12
+        commands: 
+            - echo "checkout development"
+            - git config --global user.name "Tim Williamson (Auto-versioner)"
+            - git config --global user.email "timwilliamson1337@gmail.com"
+            - git fetch
+            - git checkout development
+    pre_build:
+        commands: 
+            - npm i
+    build:
+        commands:
+            - echo "run tests"
+            - npm test
+            - echo "merge to master"
+            - git checkout master
+            - git merge development
+            - echo "increment release version"
+            - npm version patch -m "Release version"
+            - git push --set-upstream "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Le5tes/gravity-simulator.git" master
+            - echo "publish"
+            - if [ ! -d "~/.npmrc" ]; then touch ~/.npmrc; fi 
+            - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+            - npm publish --access public
+    post_build:
+        commands: 
+            - echo "merge back to development"
+            - git checkout development
+            - git merge master
+            - git push --set-upstream "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Le5tes/gravity-simulator.git" development
