@@ -12,6 +12,14 @@
     "simulation",
     "barnes-hut"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Le5tes/gravity-simulator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Le5tes/gravity-simulator/issues"
+  },
+  "homepage": "https://github.com/Le5tes/gravity-simulator#readme",
   "author": "Tim Williamson",
   "license": "ISC",
   "devDependencies": {
