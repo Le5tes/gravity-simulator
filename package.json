@@ -1,0 +1,17 @@
+{
+  "name": "@gravity-simulator/gravity-simulator",
+  "version": "0.0.0",
+  "description": "A tool to resolve n-body gravity simulations using brute-force or barnes-hut-algorithm",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "gravity",
+    "n-body",
+    "simulation",
+    "barnes-hut"
+  ],
+  "author": "Tim Williamson",
+  "license": "ISC"
+}
