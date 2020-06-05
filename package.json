@@ -13,5 +13,8 @@
     "barnes-hut"
   ],
   "author": "Tim Williamson",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
 }
