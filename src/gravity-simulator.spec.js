@@ -59,6 +59,39 @@ describe('Gravity Simulator', () => {
                 expect(stubCalculateNewPositions.lastCallArgs[1]).toEqual(bodyTree);
                 expect(result).toEqual(bodiesResult);
             });
+
+            describe('when passing in arguments for width and corner', () => {
+                it('should pass those arguments to the treebuilder', () => {
+                    const bodies = [{ mass: 10, positionX: 10, positionY: 10 }]
+
+                    simulator.calculateNewPositions(bodies, 100, -50, -50);
+
+                    expect(stubTreeBuilder.buildToArray.callCount).toEqual(1);
+                    expect(stubTreeBuilder.buildToArray.lastCallArgs[0]).toEqual(bodies);
+                    expect(stubTreeBuilder.buildToArray.lastCallArgs[1]).toEqual(100);
+                    expect(stubTreeBuilder.buildToArray.lastCallArgs[2]).toEqual(-50);
+                    expect(stubTreeBuilder.buildToArray.lastCallArgs[3]).toEqual(-50);
+                });
+            });
+
+            describe('when not passing in arguments for width and corner', () => {
+                it('should build those arguments using the bodies', () => {
+                    const bodies = [
+                        { mass: 10, positionX: 10, positionY: 10 },
+                        { mass: 10, positionX: 60, positionY: 10 },
+                        { mass: 10, positionX: 10, positionY: 60 },
+                        { mass: 10, positionX: 30, positionY: 30 }
+                    ]
+
+                    simulator.calculateNewPositions(bodies);
+
+                    expect(stubTreeBuilder.buildToArray.callCount).toEqual(1);
+                    expect(stubTreeBuilder.buildToArray.lastCallArgs[0]).toEqual(bodies);
+                    expect(stubTreeBuilder.buildToArray.lastCallArgs[1]).toEqual(50);
+                    expect(stubTreeBuilder.buildToArray.lastCallArgs[2]).toEqual(10);
+                    expect(stubTreeBuilder.buildToArray.lastCallArgs[3]).toEqual(10);
+                });
+            });
         });
     });
 
