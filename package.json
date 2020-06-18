@@ -1,6 +1,6 @@
 {
   "name": "@gravity-simulator/gravity-simulator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A tool to resolve n-body gravity simulations using brute-force or barnes-hut-algorithm",
   "main": "index.js",
   "scripts": {
