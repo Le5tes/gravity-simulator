@@ -1,3 +1,3 @@
-Simulator - require('./src/gravity-simulator').GravitySimulator
+const Simulator = require('./src/gravity-simulator').GravitySimulator
 
 module.exports = { GravitySimulator: Simulator }
