@@ -17,7 +17,7 @@ const chooseResolver = (option) => {
 
 const findLowest = (key, objects) => {
     let lowest = objects[0][key];
-    for (i = 1; i < objects.length; i++) {
+    for (let i = 1; i < objects.length; i++) {
         if (objects[i][key] < lowest) { lowest = objects[i][key] }
     }
     return lowest;
@@ -25,7 +25,7 @@ const findLowest = (key, objects) => {
 
 const findHighest = (key, objects) => {
     let highest = objects[0][key];
-    for (i = 1; i < objects.length; i++) {
+    for (let i = 1; i < objects.length; i++) {
         if (objects[i][key] > highest) { highest = objects[i][key] }
     }
     return highest;
