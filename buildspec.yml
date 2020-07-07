@@ -17,6 +17,7 @@ phases:
         commands:
             - echo "run tests"
             - npm test
+            - git diff
             - echo "merge to master"
             - git checkout master
             - git merge development
